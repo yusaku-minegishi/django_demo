@@ -1,0 +1,16 @@
+{% extends 'sns/base.html' %}
+
+{% block title %}
+  投稿削除
+{% endblock title %}
+
+{% block content %}
+  <h1>投稿削除</h1>
+  <form method="POST">
+    {% csrf_token %}
+    <div>text: {{ object.text }}</div>
+    <div>削除してもよろしいですか？</div>
+    <button type="button" onclick="history.back()">戻る</button>
+    <button>削除</button>
+  </form>
+{% endblock content %}

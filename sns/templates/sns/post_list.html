@@ -1,0 +1,18 @@
+{% extends 'sns/base.html' %}
+
+{% block title %}
+  タイムライン
+{% endblock title %}
+
+{% block content %}
+  <h1>タイムライン</h1>
+  <hr>
+  {% for object in object_list reversed %}
+    <div>
+      {{ object.updated_at }},
+      <a href="{% url 'sns:userlist' object.username %}">{{ object.username }}</a>
+    </div>
+    <a href="{% url 'sns:detail' object.pk %}">{{ object.text }}</a>
+    <hr>
+  {% endfor %}
+{% endblock content %}

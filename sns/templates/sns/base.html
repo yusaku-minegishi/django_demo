@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <header>
+      SNS
+      <a href="{% url 'sns:list' %}">タイムライン</a> |
+      <a href="{% url 'sns:create' %}">投稿作成</a> |
+      <a href="{% url 'accounts:logout' %}">ログアウト</a> |
+      username: {{ user.username }}
+    </header>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

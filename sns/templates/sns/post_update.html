@@ -1,0 +1,15 @@
+{% extends 'sns/base.html' %}
+
+{% block title %}
+  投稿更新
+{% endblock title %}
+
+{% block content %}
+  <h1>投稿更新</h1>
+  <form method="POST" action="{% url 'sns:update' object.pk %}">
+    {% csrf_token %}
+    <input type="text" name="text" value="{{ object.text }}" />
+    <button>更新</button>
+  </form>
+  <button type="button" onclick="history.back()">戻る</button>
+{% endblock content %}

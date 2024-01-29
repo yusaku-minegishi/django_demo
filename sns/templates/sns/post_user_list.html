@@ -1,0 +1,17 @@
+{% extends 'sns/base.html' %}
+
+{% block title %}
+  {{ selected_user.username }} の投稿一覧
+{% endblock title %}
+
+{% block content %}
+  <h1>{{ selected_user.username }} の投稿一覧</h1>
+  <hr>
+  {% for object in object_list reversed %}
+    <div>
+      {{ object.updated_at }}
+    </div>
+    <a href="{% url 'sns:detail' object.pk %}">{{ object.text }}</a>
+    <hr>
+  {% endfor %}
+{% endblock content %}

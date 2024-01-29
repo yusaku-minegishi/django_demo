@@ -1,0 +1,15 @@
+{% extends 'sns/base.html' %}
+
+{% block title %}
+  投稿作成
+{% endblock title %}
+
+{% block content %}
+  <h1>投稿作成</h1>
+  <form method="post" action="{% url 'sns:create' %}">
+    {% csrf_token %}
+    <input type="text" name="text" />
+    <button>投稿作成</button>
+  </form>
+  <button type="button" onclick="history.back()">戻る</button>
+{% endblock content %}

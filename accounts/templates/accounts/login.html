@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ログイン</title>
+  </head>
+  <body>
+    <h1>ログイン</h1>
+    <form action="{% url 'accounts:login' %}" method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="button" onclick="location.href=`{% url 'sns:top' %}`">
+        戻る
+      </button>
+      <input type="submit" value="ログイン" />
+    </form>
+  </body>
+</html>

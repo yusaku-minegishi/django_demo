@@ -1,0 +1,25 @@
+{% extends 'sns/base.html' %}
+
+{% block title %}
+  投稿詳細
+{% endblock title %}
+
+{% block content %}
+  <h1>投稿詳細</h1>
+  <div>created_at: {{ object.created_at }}</div>
+  <div>updated_at: {{ object.updated_at }}</div>
+  <div>username: {{ object.username }}</div>
+  <div>text: {{ object.text }}</div>
+  <button type="button" onclick="location.href=`{% url 'sns:userlist' object.username %}`">
+    ユーザーの投稿一覧
+  </button>
+
+  {% if user.username == object.username|stringformat:"s" %}
+    <button onclick="location.href=`{% url 'sns:update' object.pk %}`">
+      更新
+    </button>
+    <button onclick="location.href=`{% url 'sns:delete' object.pk %}`">
+      削除
+    </button>
+  {% endif %}
+{% endblock content %}
