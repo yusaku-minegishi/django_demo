@@ -5,11 +5,20 @@
 {% endblock title %}
 
 {% block content %}
-  <h1>投稿更新</h1>
-  <form method="POST" action="{% url 'sns:update' object.pk %}">
-    {% csrf_token %}
-    <input type="text" name="text" value="{{ object.text }}" />
-    <button>更新</button>
-  </form>
-  <button type="button" onclick="history.back()">戻る</button>
+  <div class="container">
+    <h1 class="mt-3">投稿更新</h1>
+    <form method="POST" action="{% url 'sns:update' object.pk %}" class="mt-3">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="text" name="text" value="{{ object.text }}" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">更新</button>
+    </form>
+    <button type="button" class="btn btn-light mt-3" onclick="history.back()">戻る</button>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 {% endblock content %}

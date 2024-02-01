@@ -5,21 +5,23 @@
 {% endblock title %}
 
 {% block content %}
-  <h1>投稿詳細</h1>
-  <div>created_at: {{ object.created_at }}</div>
-  <div>updated_at: {{ object.updated_at }}</div>
-  <div>username: {{ object.username }}</div>
-  <div>text: {{ object.text }}</div>
-  <button type="button" onclick="location.href=`{% url 'sns:userlist' object.username %}`">
-    ユーザーの投稿一覧
-  </button>
+  <div class="container">
+    <h1 class="mt-3">投稿詳細</h1>
+    <div>作成日時: {{ object.created_at }}</div>
+    <div>更新日時: {{ object.updated_at }}</div>
+    <div>ユーザー名: {{ object.username }}</div>
+    <div>テキスト: {{ object.text }}</div>
+    <button type="button" class="btn btn-primary mt-3" onclick="location.href=`{% url 'sns:userlist' object.username %}`">
+      ユーザーの投稿一覧
+    </button>
 
-  {% if user.username == object.username|stringformat:"s" %}
-    <button onclick="location.href=`{% url 'sns:update' object.pk %}`">
-      更新
-    </button>
-    <button onclick="location.href=`{% url 'sns:delete' object.pk %}`">
-      削除
-    </button>
-  {% endif %}
+    {% if user.username == object.username|stringformat:"s" %}
+      <button class="btn btn-success mt-3" onclick="location.href=`{% url 'sns:update' object.pk %}`">
+        更新
+      </button>
+      <button class="btn btn-danger mt-3" onclick="location.href=`{% url 'sns:delete' object.pk %}`">
+        削除
+      </button>
+    {% endif %}
+  </div>
 {% endblock content %}

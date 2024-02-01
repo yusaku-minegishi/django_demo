@@ -5,13 +5,17 @@
 {% endblock title %}
 
 {% block content %}
-  <h1>{{ selected_user.username }} の投稿一覧</h1>
-  <hr>
-  {% for object in object_list reversed %}
-    <div>
-      {{ object.updated_at }}
-    </div>
-    <a href="{% url 'sns:detail' object.pk %}">{{ object.text }}</a>
+  <div class="container">
+    <h1 class="mt-3">{{ selected_user.username }} の投稿一覧</h1>
     <hr>
-  {% endfor %}
+    {% for object in object_list reversed %}
+      <div class="mb-2">
+        <small>{{ object.updated_at }}</small>
+      </div>
+      <a href="{% url 'sns:detail' object.pk %}" class="text-dark">
+        <p>{{ object.text }}</p>
+      </a>
+      <hr>
+    {% endfor %}
+  </div>
 {% endblock content %}

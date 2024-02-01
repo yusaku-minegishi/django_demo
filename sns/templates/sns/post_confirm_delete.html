@@ -5,12 +5,19 @@
 {% endblock title %}
 
 {% block content %}
-  <h1>投稿削除</h1>
-  <form method="POST">
-    {% csrf_token %}
-    <div>text: {{ object.text }}</div>
-    <div>削除してもよろしいですか？</div>
-    <button type="button" onclick="history.back()">戻る</button>
-    <button>削除</button>
-  </form>
+  <div class="container">
+    <h1 class="mt-3">投稿削除</h1>
+    <form method="POST" class="mt-3">
+      {% csrf_token %}
+      <div class="mb-3">テキスト: {{ object.text }}</div>
+      <div class="mb-3">削除してもよろしいですか？</div>
+      <button type="button" class="btn btn-light" onclick="history.back()">戻る</button>
+      <button type="submit" class="btn btn-danger">削除</button>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 {% endblock content %}

@@ -1,18 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
-  </head>
-  <body>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
     <header>
-      SNS
-      <a href="{% url 'sns:list' %}">タイムライン</a> |
-      <a href="{% url 'sns:create' %}">投稿作成</a> |
-      <a href="{% url 'accounts:logout' %}">ログアウト</a> |
-      username: {{ user.username }}
+        SNS
+        <a href="{% url 'sns:list' %}">タイムライン</a> |
+        <a href="{% url 'sns:create' %}">投稿作成</a> |
+        <a href="{% url 'accounts:logout' %}">ログアウト</a> |
+        ユーザー: {{ user.username }}
     </header>
-    {% block content %}
-    {% endblock %}
-  </body>
+    <div class="container">
+        <div class="user-info">
+            <p>ユーザーページにようこそ、{{ user.username }}さん！</p>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

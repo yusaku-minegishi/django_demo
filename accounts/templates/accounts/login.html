@@ -1,17 +1,29 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ja">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <title>ログイン</title>
-  </head>
-  <body>
-    <h1>ログイン</h1>
-    <form action="{% url 'accounts:login' %}" method="post">
-      {% csrf_token %} {{ form.as_p }}
-      <button type="button" onclick="location.href=`{% url 'sns:top' %}`">
-        戻る
-      </button>
-      <input type="submit" value="ログイン" />
-    </form>
-  </body>
+    <!-- 外部のCSSファイルを参照 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h1>ログイン</h1>
+            <form action="{% url 'accounts:login' %}" method="post">
+                {% csrf_token %} {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">ログイン</button>
+
+                <button type="button" class="btn btn-light" onclick="location.href=`{% url 'sns:top' %}`">戻る</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
