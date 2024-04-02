@@ -10,7 +10,8 @@
     <form method="post" action="{% url 'sns:create' %}" class="mt-3">
       {% csrf_token %}
       <div class="form-group">
-        <input type="text" name="text" class="form-control" placeholder="テキストを入力してください" required>
+        <label></label>
+        <input type="text" name="text" class="form-control" id="form" placeholder="テキストを入力してください" required>
       </div>
       <button type="submit" class="btn btn-primary">投稿作成</button>
     </form>

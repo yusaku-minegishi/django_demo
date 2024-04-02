@@ -98,19 +98,20 @@ body {
 
 header {
   background-color: #007bff;
-  color: #ffffff;
+  color: #f8f0f1;
   padding: 10px;
   text-align: right;
 }
 
 header a {
   color: #ffffff;
-  margin-left: 10px;
+  margin-left: 20px;
   text-decoration: none;
 }
 
 header a:hover {
   text-decoration: underline;
+  color: #f8f9fa;
 }
 
 .container {
@@ -120,4 +121,5 @@ header a:hover {
 .user-info {
   font-size: 18px;
   margin-bottom: 20px;
+  color: #000000;
 }
