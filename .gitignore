@@ -1,1 +1,6 @@
 db.sqlite3
+accounts/__pycache__/*
+accounts/migrations/*
+django_site/__pycache__/*
+sns/__pycache__/*
+sns/migrations/*
